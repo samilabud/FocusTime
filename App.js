@@ -8,7 +8,6 @@ import { Timer } from "./src/features/timer";
 export default function App() {
   const [currentSubject, setCurrentSubject] = React.useState(null);
   const [history, setHistory] = React.useState([]);
-  console.log({ HEIGHT: StatusBar.currentHeight });
   return (
     <SafeAreaView style={styles.container}>
       {currentSubject ? (
