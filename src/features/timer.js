@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, Vibration } from 'react-native';
-import { ProgressBar } from 'react-native-paper'
-import { Countdown } from '../components/CountDown';
-import { RoundedButton } from '../components/RoundedButton';
-import { useKeepAwake } from 'expo-keep-awake';
-import { Timing } from './timing';
-import { spacing } from '../utils/sizes';
-import colors from '../utils/colors';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Vibration } from "react-native";
+import { ProgressBar } from "react-native-paper";
+import { Countdown } from "../components/CountDown";
+import { RoundedButton } from "../components/RoundedButton";
+import { useKeepAwake } from "expo-keep-awake";
+import { Timing } from "./timing";
+import { spacing } from "../utils/sizes";
+import colors from "../utils/colors";
 
 const ONE_SECOND_IN_MS = 1000;
 
@@ -23,47 +23,47 @@ export const Timer = ({ focusSubject, clearSubject, onTimerEnd }) => {
   const [paused, setPaused] = useState(true);
   const [progress, setProgress] = useState(1);
   const [minutes, setMinutes] = useState(20);
-  
+
   const onEnd = (reset) => {
     Vibration.vibrate(PATTERN);
     setPaused(true);
     setProgress(1);
     reset();
     onTimerEnd(focusSubject);
-  }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.countdown}>
-        <Countdown 
+        <Countdown
           minutes={minutes}
-          isPaused={paused} 
-          onProgress={setProgress} 
-          onEnd={onEnd} 
+          isPaused={paused}
+          onProgress={setProgress}
+          onEnd={onEnd}
         />
-        <View style={{padding:spacing.xxl}}>
+        <View style={{ padding: spacing.xxl }}>
           <Text style={styles.title}>Focusing on</Text>
           <Text style={styles.task}>{focusSubject}</Text>
         </View>
       </View>
       <View style={{ paddingTop: spacing.sm }}>
-          <ProgressBar 
-            progress={progress}
-            color={colors.progressBar}
-            style={{height:spacing.sm}}
-          />
+        <ProgressBar
+          progress={progress}
+          color={colors.progressBar}
+          style={{ height: spacing.sm }}
+        />
       </View>
       <View style={styles.timing}>
         <Timing onChangeTime={setMinutes}/>
       </View>
       <View style={styles.buttonWrapper}>
         <RoundedButton
-          title={paused ? 'start' : 'pause'}
+          title={paused ? "start" : "pause"}
           onPress={() => setPaused(!paused)}
         />
       </View>
-       <View style={styles.clearSubject}>
+      <View style={styles.clearSubject}>
         <RoundedButton
-          title={'-'}
+          title={"-"}
           size={40}
           onPress={clearSubject}
         />
@@ -78,32 +78,32 @@ const styles = StyleSheet.create({
   },
   countdown: {
     flex: 0.6,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
-   timing: {
+  timing: {
     flex: 0.1,
     paddingTop: spacing.lg,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   buttonWrapper: {
     flex: 0.3,
-    flexDirection: 'row',
+    flexDirection: "row",
     padding: spacing.md,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
-  title:{
+  title: {
     color: colors.white,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
   },
-  clearSubject:{
-    flexDirection: 'row',
-    justifyContent: 'center',
+  clearSubject: {
+    flexDirection: "row",
+    justifyContent: "center",
   },
-  task:{
+  task: {
     color: colors.white,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
