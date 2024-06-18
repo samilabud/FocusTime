@@ -24,7 +24,7 @@
     "expo-constants": "~16.0.2",
     "expo-keep-awake": "^13.0.1",
     "expo-status-bar": "~1.12.1",
-    "react": "18.2.0",
+    "react": "^17.0.2",
     "react-native": "0.74.2",
     "react-native-paper": "^5.12.3"
   },
