@@ -1,4 +1,9 @@
 module.exports = {
+  settings: {
+    react: {
+      version: "17.0.2", // Specify the version of React
+    },
+  },
   env: {
     browser: true,
     es2021: true,
