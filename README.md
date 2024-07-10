@@ -1,3 +1,3 @@
 # FocusTime App
 
-This is an app to manage your time, you can select the time you need to be focused!
+This app is designed to efficiently manage your time. Take control of your focus by selecting the exact amount of time you need to dedicate to your tasks!
